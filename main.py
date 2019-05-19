@@ -2,7 +2,7 @@ from tkinter import *
 from tkinter import ttk
 
 '''Nuestra clase principal será un frame de TKINTER en el que habrá un campo de entrada en el que escribiremos una cantidad
-   y un par de radiobuttons para poder convertir esa cantidad en dos unidades diferentes.
+   y tres radiobuttons para poder convertir esa cantidad en tres unidades diferentes.
    La clase principal heradará de la clase -Tk- de TKINTER y así, en sí misma, ya será un frame TKINTER con todos sus atributos
    y métodos, al que le podremos agregar los nuestros.'''
 class ConversorTemperatura(Tk):
@@ -43,7 +43,7 @@ class ConversorTemperatura(Tk):
         '''Ahora colocaremos una etiqueta informativa.'''
         self.etiquetaGrados = ttk.Label(self, text = "Grados").place(x = 50, y = 45)
         
-        '''Y ahora dos radiobuttons que se encargarán de marcar a que unidad convertimos la temperatura.'''
+        '''Y ahora los radiobuttons que se encargarán de marcar a que unidad convertimos la temperatura.'''
         self.rbC = ttk.Radiobutton(self, text = "Celsius", variable = self.unidad, value = "C", command = self.seleccionRB). place(x = 65, y = 70)
         self.rbF = ttk.Radiobutton(self, text = "Fahrenheit", variable = self.unidad, value = "F", command = self.seleccionRB). place(x = 65, y = 90)
         self.rbK = ttk.Radiobutton(self, text = "Kelvin", variable = self.unidad, value = "K", command = self.seleccionRB). place(x = 65, y = 110)
@@ -68,7 +68,7 @@ class ConversorTemperatura(Tk):
             self.__temperaturaAnterior = 0
         
     
-    '''Este método albergará el código funcional que se ejecutará cuando se seleccione uno u otro radiobutton.'''
+    '''Este método albergará el código funcional de conversión de temperatura que se ejecutará cuando se seleccione uno u otro radiobutton.'''
     def seleccionRB(self):
         '''Sólo convertiremos si la variable de control -temperatura- contuviera algo y evitamos convertir si sólo contuviera el signo menos.'''
         if len(self.temperatura.get()) != 0 and self.temperatura.get() != '-':
